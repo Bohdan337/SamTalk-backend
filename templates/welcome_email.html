@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SamTalk Welcome</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;   
+      min-height: 100vh;
+      background-color: #ffffff;
+      color: #000000;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 30rem;
+      padding: 2rem 1.5rem;
+      margin: 0 auto;
+    }
+
+    .header {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #284E9F;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+
+    .header-image-logo {
+      width: 1.7rem;
+      height: 1.7rem;
+      background-color: #3b4fe3;
+      border-radius: 50%;
+    }
+
+    .profile-image {
+      width: 4rem;
+      height: 4rem;
+      border-radius: 50%;
+      overflow: hidden;
+      margin-bottom: 1rem;
+    }
+
+    .profile-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    h1 {
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+      text-align: center;
+    }
+
+    .intro-text {
+      font-size: 1rem;
+      text-align: center;
+      margin-bottom: 1.5rem;
+      line-height: 1.4;
+    }
+
+    .hero-image {
+      width: 100%;
+      border-radius: 0.8rem;
+      overflow: hidden;
+      margin-bottom: 2rem;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .welcome-title {
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    .welcome-description {
+      font-size: 1rem;
+      text-align: center;
+      margin-bottom: 2rem;
+      line-height: 1.5;
+    }
+
+    .button {
+      background-color: #000000;
+      text-decoration: none;
+      color: #ffffff;
+      border: none;
+      display: block;
+      margin: 0 auto;
+      padding: 0.8rem 2rem;
+      border-radius: 0.5rem;
+      font-size: 1rem;
+      cursor: pointer;
+      text-align: center;
+      width: 40%;
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-text {
+      color:rgb(165, 165, 165);
+      font-size: 1rem;
+      font-weight: bold;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+        <img src="/media/sendEmail/LOGO1.png" class='header-image-logo' alt="" />
+        <span>SamTalk</span>
+    </div>
+
+    <div class="profile-image">
+        <img src="{{ user_image }}" alt="Profile" />
+    </div>
+
+    <h1>Hi, {{ username }}</h1>
+
+    <h5 class="intro-text">Welcome to the web-messanger SamTalk.</h5>
+
+    <div class="hero-image">
+        <img src="/media/sendEmail/backEmail.png" alt="" />
+    </div>
+
+    <h3 class="welcome-title">Welcome to SamTalk</h3>
+
+    <h5 class="welcome-description">
+        Welcome to SamTalk — your new go-to place for fresh perspectives and insightful content. Over the next few days, we’ll send you a short series of emails to help you explore the site and get the most out of what SamTalk has to offer. We’re excited to have you on board!
+    </h5>
+
+    <a href="{{ verification_link }}" class="button">Submit email</a>
+
+    <hr style='border-radius: 15px; border: 1.5px solid rgb(221, 221, 221); width: 100%; margin-bottom: 0.5rem;' />
+    <div class="footer-text">Get SamTalk Web</div>
+  </div>
+</body>
+</html>
