@@ -14,7 +14,7 @@ from channels.routing import ProtocolTypeRouter, URLRouter
 from channels.auth import AuthMiddlewareStack
 from chat.routing import websocket_urlpatterns
 
-settings_module = "backend.deploy_settings" if "RENDER_EXTERNAL_HOSTNAME" in os.environ else "backend.settings"
+settings_module = ("backend.deploy_settings" if "RENDER_EXTERNAL_HOSTNAME" in os.environ else "backend.settings")
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', settings_module)
 
