@@ -1,5 +1,5 @@
 import os
-from settings import*
+from .settings import*
 
 
 SECRET_KEY = os.getenv("SECRET_KEY",)
