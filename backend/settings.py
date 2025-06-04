@@ -40,7 +40,7 @@ FRONTEND_URL = os.getenv("FRONTEND_URL", "http://localhost:3000")
 CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:3000",
     "http://localhost:3000",
-    "FRONTEND_URL",
+    FRONTEND_URL,
 ]
 
 # Application definition
