@@ -1,7 +1,5 @@
 import json
 from channels.generic.websocket import AsyncWebsocketConsumer
-from .models import Chat, Message
-from user.models import CustomUser
 from django.core.files.base import ContentFile
 import base64
 from django.conf import settings
@@ -27,6 +25,9 @@ class ChatConsumer(AsyncWebsocketConsumer):
         )
 
     async def receive(self, text_data):
+        from .models import Chat, Message
+        from user.models import CustomUser
+        
         data = json.loads(text_data)
         print("Receive from websocket:", data)
 

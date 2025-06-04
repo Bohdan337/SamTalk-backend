@@ -33,11 +33,14 @@ SECRET_KEY = os.getenv("SECRET_KEY",)
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv("DEBUG", True)
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [os.getenv("ALLOWED_HOSTS", "*"), "localhost", "127.0.0.1"]
+
+FRONTEND_URL = os.getenv("FRONTEND_URL", "http://localhost:3000")
 
 CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:3000",
-    "http://localhost:3000"
+    "http://localhost:3000",
+    "FRONTEND_URL",
 ]
 
 # Application definition
@@ -123,18 +126,15 @@ SIMPLE_JWT = {
 }
 
 
-# CHANNEL_LAYERS = {
-#     "default": {
-#         "BACKEND": "channels_redis.core.RedisChannelLayer",
-#         "CONFIG": {
-#             "hosts": [("localhost", 6379)],
-#         },
-#     },
-# }
-
 CHANNEL_LAYERS = {
-    'default': {
-        'BACKEND': 'channels.layers.InMemoryChannelLayer',
+    "default": {
+        "BACKEND": "channels_redis.core.RedisChannelLayer",
+        "CONFIG": {
+            "hosts":[{
+                "address": os.getenv("REDIS_URL"),  # "REDIS_TLS_URL"
+                "ssl_cert_reqs": None,
+            }]
+    }
     },
 }
 
@@ -227,8 +227,6 @@ TEMPLATES = [
     },
 ]
 
-
-FRONTEND_URL = 'http://127.0.0.1:3000'
 
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
