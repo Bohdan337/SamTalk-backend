@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from .models import Chat, Message
 from  user.models import CustomUser
+from django.conf import settings
 
 class MessageSerializer(serializers.ModelSerializer):
     author = serializers.ReadOnlyField(source='author.email')
@@ -12,7 +13,7 @@ class MessageSerializer(serializers.ModelSerializer):
 
     def get_image(self, obj):
         if obj.image:
-            return f'http://127.0.0.1:8000{obj.image.url}'
+            return f'{settings.BACKEND_BASE_URL}{obj.image.url}'
         return None
 
 class ChatMemberSerializer(serializers.ModelSerializer):
@@ -23,7 +24,7 @@ class ChatMemberSerializer(serializers.ModelSerializer):
         fields = ['username', 'email', 'image_url']
 
     def get_image_url(self, obj):
-        return f'http://127.0.0.1:8000{obj.profile_image.url}'
+        return f'{settings.BACKEND_BASE_URL}{obj.profile_image.url}'
 
 class ChatSerializer(serializers.ModelSerializer):
     members = ChatMemberSerializer(many=True)

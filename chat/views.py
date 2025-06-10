@@ -6,6 +6,7 @@ from .models import Message, Chat, CustomUser
 from django.db.models import Count
 from django.shortcuts import get_object_or_404
 import json
+from django.conf import settings
 
 class ChatView(APIView):
     permission_classes = [permissions.IsAuthenticated]
@@ -48,7 +49,7 @@ class ChatView(APIView):
         members_data.append({
             'username': request.user.username,
             'email': request.user.email,
-            'image_url': f'http://127.0.0.1:8000{request.user.profile_image.url}'
+            'image_url': f'{settings.BACKEND_BASE_URL}{request.user.profile_image.url}'
         })
 
         if not members_data:

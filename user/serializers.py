@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from .models import CustomUser
 from django.contrib.auth.models import User
+from django.conf import settings
 
 class CustomUserSerializer(serializers.ModelSerializer):
     password=serializers.CharField(write_only=True, required=False, min_length=8)
@@ -13,7 +14,7 @@ class CustomUserSerializer(serializers.ModelSerializer):
         # read_only_fields = ['email']
     
     def get_image_url(self, obj):
-        return f'http://127.0.0.1:8000{obj.profile_image.url}'
+        return f'{settings.BACKEND_BASE_URL}{obj.profile_image.url}'
     
     # def validate(self, data):
     #     if CustomUser.objects.filter(email=data['email']).exists():

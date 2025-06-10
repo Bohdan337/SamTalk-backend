@@ -57,7 +57,7 @@ class ChatConsumer(AsyncWebsocketConsumer):
                 {
                     'type': 'chat_message',
                     'content': message.content,
-                    'image': f'http://127.0.0.1:8000{message.image.url}' if message.image else None,
+                    'image': f'{settings.BACKEND_BASE_URL}{message.image.url}' if message.image else None,
                     'author': author.email,
                     'created_at': message.created_at.isoformat(),
                 }

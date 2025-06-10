@@ -39,7 +39,7 @@ FRONTEND_URL = os.getenv("FRONTEND_URL", "http://localhost:3000")
 
 # CORS_ALLOW_ALL_ORIGINS = True
 
-
+BACKEND_BASE_URL = "https://samtalk-backend.onrender.com"
 
 
 # Application definition
