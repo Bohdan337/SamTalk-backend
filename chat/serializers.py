@@ -13,7 +13,7 @@ class MessageSerializer(serializers.ModelSerializer):
 
     def get_image(self, obj):
         if obj.image:
-            return f'{settings.BACKEND_BASE_URL}{obj.image.url}'
+            return f'{settings.BACKEND_BASE_URL}/api{obj.image.url}'
         return None
 
 class ChatMemberSerializer(serializers.ModelSerializer):
@@ -24,7 +24,7 @@ class ChatMemberSerializer(serializers.ModelSerializer):
         fields = ['username', 'email', 'image_url']
 
     def get_image_url(self, obj):
-        return f'{settings.BACKEND_BASE_URL}{obj.profile_image.url}'
+        return f'{settings.BACKEND_BASE_URL}/api{obj.profile_image.url}'
 
 class ChatSerializer(serializers.ModelSerializer):
     members = ChatMemberSerializer(many=True)

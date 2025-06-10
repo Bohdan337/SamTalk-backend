@@ -14,7 +14,7 @@ class CustomUserSerializer(serializers.ModelSerializer):
         # read_only_fields = ['email']
     
     def get_image_url(self, obj):
-        return f'{settings.BACKEND_BASE_URL}{obj.profile_image.url}'
+        return f'{settings.BACKEND_BASE_URL}/api{obj.profile_image.url}'
     
     # def validate(self, data):
     #     if CustomUser.objects.filter(email=data['email']).exists():

@@ -49,7 +49,7 @@ class ChatView(APIView):
         members_data.append({
             'username': request.user.username,
             'email': request.user.email,
-            'image_url': f'{settings.BACKEND_BASE_URL}{request.user.profile_image.url}'
+            'image_url': f'{settings.BACKEND_BASE_URL}/api{request.user.profile_image.url}'
         })
 
         if not members_data:
