@@ -24,7 +24,7 @@ class RegisterView(APIView):
         from_email = settings.DEFAULT_FROM_EMAIL
         token = RefreshToken.for_user(user).access_token
         to_email = [user.email]
-        verification_link = f"{settings.BACKEND_BASE_URL}/api{reverse('verify_email')}?token={str(token)}"
+        verification_link = f"{settings.BACKEND_BASE_URL}{reverse('verify_email')}?token={str(token)}"
 
         html_content = render_to_string('welcome_email.html', {'username': user.username, 'verification_link': verification_link, 'user_image' : user.profile_image.url if user.profile_image else None})
         text_content = strip_tags(html_content)
