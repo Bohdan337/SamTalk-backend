@@ -90,6 +90,7 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     'https://samtalk-frontend.onrender.com',
     FRONTEND_URL,
+    BACKEND_BASE_URL,
     # '*',
 ]
 
@@ -98,6 +99,7 @@ CSRF_TRUSTED_ORIGINS = [
     "http://localhost:3000",
     'https://samtalk-frontend.onrender.com',
     FRONTEND_URL,
+    BACKEND_BASE_URL,
 ]
 
 DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
