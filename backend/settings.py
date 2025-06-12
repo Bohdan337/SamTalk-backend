@@ -154,6 +154,12 @@ CHANNEL_LAYERS = {
     },
 }
 
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels.layers.InMemoryChannelLayer',
+    },
+}
+
 
 ROOT_URLCONF = 'backend.urls'
 
